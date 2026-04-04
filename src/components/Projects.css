@@ -93,7 +93,11 @@
   border: 1px solid var(--bg-glass-border);
   border-radius: 20px;
   opacity: 0.6;
-  transition: opacity 0.5s ease, box-shadow 0.5s ease;
+  transition: opacity 0.5s ease, box-shadow 0.5s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.projects__card:hover {
+  transform: translateY(-8px);
 }
 
 [data-theme="light"] .projects__card {
