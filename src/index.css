@@ -1,0 +1,183 @@
+/* ===== PREMIUM CSS VARIABLES & DESIGN TOKENS ===== */
+:root {
+  /* Dark theme (default) - Deep space premium blacks */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  
+  /* Advanced Glassmorphism */
+  --bg-card: rgba(25, 25, 25, 0.4);
+  --bg-card-hover: rgba(35, 35, 35, 0.6);
+  --bg-glass: rgba(15, 15, 15, 0.7);
+  --bg-glass-border: rgba(255, 255, 255, 0.05);
+  --bg-glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  
+  /* Typography */
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+  
+  /* Neon Accents */
+  --accent-violet: #00f3ff; /* Renamed logically to blue, kept var name for compatibility */
+  --accent-cyan: #ff6a00;
+  --accent-emerald: #10b981;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #00f3ff 0%, #ff6a00 100%);
+  --gradient-hero: linear-gradient(to right, #fff 0%, #a1a1aa 100%);
+  --gradient-card: linear-gradient(135deg, rgba(0, 243, 255, 0.1) 0%, rgba(255, 106, 0, 0.1) 100%);
+  
+  /* Shadows */
+  --shadow-card: 0 20px 40px -20px rgba(0,0,0,0.5);
+  --shadow-card-hover: 0 30px 60px -20px rgba(0, 243, 255, 0.15);
+  
+  --nav-bg: rgba(5, 5, 5, 0.8);
+  --border-radius: 20px;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  --bg-primary: #fafafa;
+  --bg-secondary: #f4f4f5;
+  
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(250, 250, 250, 0.8);
+  --bg-glass-border: rgba(0, 0, 0, 0.05);
+  --bg-glass-border-hover: rgba(0, 0, 0, 0.1);
+  --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 1);
+  
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+  
+  --gradient-hero: linear-gradient(to right, #09090b 0%, #52525b 100%);
+  
+  --shadow-card: 0 20px 40px -20px rgba(0,0,0,0.05);
+  --shadow-card-hover: 0 30px 60px -20px rgba(0, 243, 255, 0.1);
+  
+  --nav-bg: rgba(250, 250, 250, 0.85);
+}
+
+/* ===== GLOBAL RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  /* Premium noise overlay */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-glass-border-hover);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===== TEXT UTILITIES ===== */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.premium-title {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== LAYOUT UTILITIES ===== */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin-bottom: 60px;
+  font-weight: 400;
+}
+
+/* ===== GLASS CARD - PREMIUM EDITION ===== */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card), var(--glass-highlight);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--bg-glass-border-hover);
+  box-shadow: var(--shadow-card-hover), var(--glass-highlight);
+}
