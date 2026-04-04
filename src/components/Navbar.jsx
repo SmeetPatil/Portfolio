@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Moon, Sun, Menu, X, Code2, Download } from 'lucide-react';
+import { Moon, Sun, Menu, X, Download } from 'lucide-react';
+import logo from '../assets/logo.png';
 import './Navbar.css';
 
 function Navbar({ theme, toggleTheme }) {
@@ -32,7 +33,7 @@ function Navbar({ theme, toggleTheme }) {
       <div className="navbar__container">
         <a href="#home" className="navbar__logo">
           <div className="navbar__logo-icon">
-            <Code2 size={24} />
+            <img src={logo} alt="Smeet Patil Logo" style={{ width: '32px', height: '32px' }} />
           </div>
           <span className="navbar__logo-text gradient-text">Smeet Patil</span>
         </a>

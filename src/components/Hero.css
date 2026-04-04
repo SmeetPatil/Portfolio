@@ -18,17 +18,26 @@
 .hero__badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: var(--bg-glass);
-  border: 1px solid var(--bg-glass-border);
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(16, 185, 129, 0.05); /* very subtle emerald tint */
+  border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 24px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.hero__badge:hover {
+  transform: translateY(-2px);
+  background: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 6px 25px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .hero__badge-dot {
@@ -38,6 +47,12 @@
   border-radius: 50%;
   box-shadow: 0 0 12px var(--accent-emerald);
   animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.hero__badge:hover .hero__badge-dot {
+  animation: none;
+  box-shadow: 0 0 20px var(--accent-emerald), 0 0 10px rgba(16, 185, 129, 0.5);
+  background: #2dd4bf; /* slightly brighter emerald on hover */
 }
 
 @keyframes pulse {

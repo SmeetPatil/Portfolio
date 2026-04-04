@@ -91,13 +91,11 @@ function Hero() {
         </motion.h1>
 
         <motion.h2 variants={itemVariants} className="hero__subtitle">
-          Full-Stack Developer & Creative Coder
+          Full-Stack Developer :)
         </motion.h2>
 
         <motion.p variants={itemVariants} className="hero__description">
-          I love to code and create! Building innovative web applications,
-          exploring AR/VR, and turning ideas into reality with clean code
-          and creative solutions.
+          Prolific in multiple programming languages for both frontend and backend development, with proficiency in DSA and Devops. Currently familiarizing myself with AI and machine learning and Android Development. Always eager to collaborate and take on new challenges.
         </motion.p>
 
         <motion.div variants={itemVariants} className="hero__cta">
