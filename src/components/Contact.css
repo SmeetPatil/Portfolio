@@ -1,0 +1,131 @@
+.contact {
+  position: relative;
+  z-index: 1;
+}
+
+.contact__wrapper {
+  text-align: center;
+  position: relative;
+}
+
+.contact__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact__subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+.contact__email-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto 40px;
+  padding: 20px 24px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.contact__email-icon {
+  color: var(--accent-violet);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__email-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__email-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.contact__email-address {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact__copy-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--bg-glass-border);
+  background: var(--bg-glass);
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact__copy-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.contact__email-card:hover .contact__copy-status {
+  color: var(--text-primary);
+}
+
+.contact__links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact__social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.contact__social:hover {
+  color: var(--text-primary);
+}
+
+.contact__social svg {
+  transition: var(--transition);
+}
+
+.contact__social:hover svg {
+  color: inherit; /* Handled by framer hover border colors */
+}
+
+@media (max-width: 640px) {
+  .contact__email-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact__links {
+    flex-direction: column;
+    align-items: center;
+  }
+}

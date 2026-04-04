@@ -1,0 +1,124 @@
+.skills {
+  position: relative;
+  z-index: 1;
+}
+
+.skills__carousel-wrapper {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills--visible .skills__carousel-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills__swiper {
+  width: 100%;
+  padding: 50px 0;
+}
+
+.skills__swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 380px;
+}
+
+.swiper-pagination-bullet {
+  background: var(--text-secondary) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--accent-violet) !important;
+}
+
+.skills__card {
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cat-color), transparent);
+  border-radius: 3px 3px 0 0;
+}
+
+.skills__card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.skills__card-icon {
+  font-size: 1.8rem;
+}
+
+.skills__card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.skills__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skills__item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.skills__item-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.skills__item-level {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.skills__bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+[data-theme="light"] .skills__bar {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.skills__bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--fill-color), color-mix(in srgb, var(--fill-color) 60%, white));
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--fill-color) 40%, transparent);
+}
+
+.skills--visible .skills__bar-fill {
+  width: var(--fill-width);
+}
+
+@media (max-width: 768px) {
+  .skills__swiper .swiper-slide {
+    width: 280px;
+  }
+}
