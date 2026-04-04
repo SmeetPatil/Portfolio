@@ -1,9 +1,44 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import './Hero.css';
 
 function Hero() {
+  const [text, setText] = useState('');
+  const fullName = 'Smeet Patil';
+
+  useEffect(() => {
+    let timeout;
+    let currentIndex = 0;
+    let isDeleting = false;
+
+    const type = () => {
+      if (!isDeleting) {
+        setText(fullName.substring(0, currentIndex + 1));
+        currentIndex++;
+        if (currentIndex === fullName.length) {
+          isDeleting = true;
+          timeout = setTimeout(type, 2000); // Pause at end before deleting
+        } else {
+          timeout = setTimeout(type, 150); // Typing speed
+        }
+      } else {
+        setText(fullName.substring(0, currentIndex - 1));
+        currentIndex--;
+        if (currentIndex === 0) {
+          isDeleting = false;
+          timeout = setTimeout(type, 500); // Pause at beginning before typing
+        } else {
+          timeout = setTimeout(type, 100); // Deleting speed
+        }
+      }
+    };
+
+    timeout = setTimeout(type, 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,7 +83,11 @@ function Hero() {
         </motion.div>
 
         <motion.h1 variants={itemVariants} className="hero__title">
-          <span className="premium-title">Hi, I'm</span> <span className="gradient-text">Smeet Patil</span>
+          <span className="premium-title">Hi, I'm </span>
+          <span className="red-animated-name">
+            {text}
+            <span className="typing-cursor">|</span>
+          </span>
         </motion.h1>
 
         <motion.h2 variants={itemVariants} className="hero__subtitle">
@@ -88,22 +127,6 @@ function Hero() {
             <span className="hero__stat-label">Projects Built</span>
           </div>
         </motion.div>
-      </motion.div>
-
-      <motion.div 
-        className="hero__scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-      >
-        <span className="hero__scroll-text">Scroll to explore</span>
-        <div className="hero__scroll-line">
-          <motion.div 
-            className="hero__scroll-dot"
-            animate={{ top: ['-20px', '60px', '60px'] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </div>
       </motion.div>
     </section>
   );

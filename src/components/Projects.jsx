@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import { ExternalLink, Globe, Smartphone, Calculator, ShieldCheck, Gamepad2, ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaReact, FaNodeJs, FaJava, FaPython, FaLock, FaVrCardboard, FaJs, FaServer } from 'react-icons/fa';
+import { SiNextdotjs, SiExpress, SiMongodb, SiFirebase, SiMysql, SiPostgresql, SiFlutter, SiDart, SiOpencv } from 'react-icons/si';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';       
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -23,6 +24,30 @@ const getProjectIcon = (name) => {
     default: return <Globe size={28} />;
   }
 };
+
+const getTechIcon = (techName) => {
+  switch(techName) {
+    case 'React': return <FaReact size={24} />;
+    case 'Node.js': return <FaNodeJs size={24} />;
+    case 'Next.js': return <SiNextdotjs size={24} />;
+    case 'Express': return <SiExpress size={24} />;
+    case 'MongoDB': return <SiMongodb size={24} />;
+    case 'Firebase': return <SiFirebase size={24} />;
+    case 'Firestore': return <SiFirebase size={24} />;
+    case 'Flutter': return <SiFlutter size={24} />;
+    case 'Dart': return <SiDart size={24} />;
+    case 'Java': return <FaJava size={24} />;
+    case 'MySQL': return <SiMysql size={24} />;
+    case 'Python': return <FaPython size={24} />;
+    case 'OpenCV': return <SiOpencv size={24} />;
+    case 'PostgreSQL': return <SiPostgresql size={24} />;
+    case 'JavaScript': return <FaJs size={24} />;
+    case 'REST APIs': return <FaServer size={24} />;
+    case 'Cryptography': return <FaLock size={24} />;
+    case 'AR Framework': return <FaVrCardboard size={24} />;
+    default: return null;
+  }
+}
 
 const projects = [
   {
@@ -86,9 +111,9 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { y: 50, opacity: 0, scale: 0.95 },
-  visible: { 
-    y: 0, 
-    opacity: 1, 
+  visible: {
+    y: 0,
+    opacity: 1,
     scale: 1,
     transition: { type: 'spring', stiffness: 80, damping: 15 }
   }
@@ -107,7 +132,7 @@ function Projects() {
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           className="projects__carousel-wrapper"
           variants={containerVariants}
           initial="hidden"
@@ -121,11 +146,11 @@ function Projects() {
             slidesPerView={'auto'}
             initialSlide={1}
             coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-              slideShadows: true,
+              rotate: -5,
+              stretch: -30,
+              depth: 120,
+              modifier: 2,
+              slideShadows: false,
             }}
             pagination={{ clickable: true }}
             navigation={{
@@ -145,25 +170,25 @@ function Projects() {
                     scale={1.02}
                     transitionSpeed={2000}
                     gyroscope={true}
-                    className={`projects__card glass-card ${project.featured ? 'projects__card--featured' : ''}`}
+                    className={`projects__card ${project.featured ? 'projects__card--featured' : ''}`}
                   >
                     {/* Glow Effect Background */}
-                    <div 
-                      className="projects__card-glow" 
+                    <div
+                      className="projects__card-glow"
                       style={{ background: project.gradient }}
                     ></div>
 
                     {project.featured && (
-                      <div className="projects__badge">⭐ Featured</div>
+                      <div className="projects__badge"> Featured</div>        
                     )}
 
                     <div className="projects__card-top">
                       <div className="projects__card-icon" style={{ background: project.gradient }}>
                         {getProjectIcon(project.name)}
                       </div>
-                      
+
                       <div className="projects__links">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="projects__link-icon" aria-label="GitHub Repository">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="projects__link-icon" aria-label="GitHub Repository">      
                           <FaGithub size={20} />
                         </a>
                         {project.live && (
@@ -175,26 +200,36 @@ function Projects() {
                     </div>
 
                     <div className="projects__card-content">
-                      <h3 className="projects__card-title">{project.name}</h3>
+                      <h3 className="projects__card-title">{project.name}</h3>  
                       <p className="projects__card-desc">{project.description}</p>
                     </div>
 
-                    <div className="projects__tags">
-                      {project.tech.map((t) => (
-                        <span className="projects__tag" key={t}>{t}</span>
-                      ))}
+                    <div className="projects__tech-icons">
+                      {project.tech.map((t) => {
+                        const icon = getTechIcon(t);
+                        return icon ? (
+                          <div className="projects__tech-icon-wrapper" key={t}>
+                            <div className="projects__tech-icon-inner">
+                              {icon}
+                            </div>
+                            <span className="projects__tech-tooltip">{t}</span>
+                          </div>
+                        ) : (
+                          <span className="projects__tag" key={t}>{t}</span>
+                        );
+                      })}
                     </div>
                   </Tilt>
                 </motion.div>
               </SwiperSlide>
             ))}
-            
+
             <div className="custom-swiper-navigation">
               <button aria-label="Previous Slide" className="custom-swiper-button-prev projects-swiper-button-prev">
-                <ChevronLeft size={24} />
+                <ChevronLeft size={28} />
               </button>
               <button aria-label="Next Slide" className="custom-swiper-button-next projects-swiper-button-next">
-                <ChevronRight size={24} />
+                <ChevronRight size={28} />
               </button>
             </div>
           </Swiper>

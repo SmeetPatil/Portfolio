@@ -17,13 +17,23 @@ function App() {
     const saved = localStorage.getItem('portfolio-theme');
     if (saved) {
       setTheme(saved);
+      document.body.setAttribute('data-theme', saved);
       document.documentElement.setAttribute('data-theme', saved);
+    } else {
+      // Check system preference
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (prefersLight) {
+        setTheme('light');
+        document.body.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
     }
   }, []);
 
   const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
+    document.body.setAttribute('data-theme', next);
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('portfolio-theme', next);
   };
@@ -34,9 +44,9 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
-        <About />
         <Skills />
         <Projects />
+        {/* <About /> */}
         <Contact />
       </main>
       <Footer />

@@ -1,7 +1,7 @@
 /* ===== PREMIUM CSS VARIABLES & DESIGN TOKENS ===== */
-:root {
+:root, [data-theme="dark"] {
   /* Dark theme (default) - Deep space premium blacks */
-  --bg-primary: #050505;
+  --bg-primary: #000000;
   --bg-secondary: #0a0a0a;
   
   /* Advanced Glassmorphism */
@@ -130,7 +130,7 @@ img {
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 40px 24px;
 }
 
 .section-title {

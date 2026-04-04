@@ -1,32 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Moon, Sun, Menu, X, Code2 } from 'lucide-react';
+import { Moon, Sun, Menu, X, Code2, Download } from 'lucide-react';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
-    
-    // Check system preference
-    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    if (prefersLight) {
-      setTheme('light');
-      document.body.setAttribute('data-theme', 'light');
-    }
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.body.setAttribute('data-theme', newTheme);
-  };
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -58,6 +44,10 @@ function Navbar() {
               {link.name}
             </a>
           ))}
+          <a href="/src/assets/resume.pdf" download="resume.pdf" className="navbar__link resume-nav-btn">
+            <Download size={18} />
+            <span>Resume</span>
+          </a>
           <button className="navbar__theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
@@ -104,6 +94,15 @@ function Navbar() {
                 {link.name}
               </a>
             ))}
+            <a 
+              href="/src/assets/resume.pdf" 
+              download="resume.pdf" 
+              className="navbar__mobile-link resume-nav-btn--mobile"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Download size={18} style={{ marginRight: '8px' }} />
+              Resume
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
