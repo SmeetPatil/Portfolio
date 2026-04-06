@@ -1,7 +1,24 @@
-import { Code2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Code2, Eye } from 'lucide-react';
 import './Footer.css';
 
 function Footer() {
+  const [views, setViews] = useState(null);
+
+  useEffect(() => {
+    // Only increment the view count on your actual deployed Vercel website.
+    // On localhost, it will just retrieve the current count without artificially inflating it!
+    const isProduction = window.location.hostname === 'smeet-patil.vercel.app';
+    const endpoint = isProduction 
+      ? 'https://api.counterapi.dev/v1/smeetpatil-portfolio/visits/up'
+      : 'https://api.counterapi.dev/v1/smeetpatil-portfolio/visits/';
+
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => setViews(data.count))
+      .catch(err => console.error('Error fetching view count', err));
+  }, []);
+
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -23,6 +40,12 @@ function Footer() {
 
         <div className="footer__bottom">
           <p>© {new Date().getFullYear()} Smeet Patil. Built with React & ❤️</p>
+          {views !== null && (
+            <p className="footer__views">
+              <Eye size={14} />
+              <span>{views.toLocaleString()} Profile Views</span>
+            </p>
+          )}
         </div>
       </div>
     </footer>
