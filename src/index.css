@@ -189,3 +189,57 @@ img {
   background: var(--bg-card-hover);
   border-color: var(--border-color);
 }
+
+/* ===== GLOBAL RESPONSIVE ===== */
+@media (max-width: 960px) {
+  .section-container {
+    padding: 60px 20px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 48px 16px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  .gradient-line {
+    width: 48px;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-container {
+    padding: 40px 12px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 7vw, 2.5rem);
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+  }
+
+  .gradient-line {
+    width: 40px;
+  }
+}
+

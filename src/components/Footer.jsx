@@ -8,7 +8,7 @@ function Footer() {
 
   useEffect(() => {
     const isProduction = window.location.hostname === 'smeet-patil.vercel.app';
-    const endpoint = isProduction 
+    const endpoint = isProduction
       ? 'https://api.counterapi.dev/v1/smeetpatil-portfolio/visits/up'
       : 'https://api.counterapi.dev/v1/smeetpatil-portfolio/visits/';
 
@@ -46,9 +46,9 @@ function Footer() {
           <div className="footer__counter">
             <Eye size={18} />
             <span className="footer__counter-value">
-              {views !== null 
-                ? `${views.toLocaleString()} views` 
-                : error 
+              {views !== null
+                ? `${views.toLocaleString()} views`
+                : error
                   ? '—'
                   : '...'}
             </span>
@@ -56,7 +56,7 @@ function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} Smeet Patil. Built with React & ❤️</p>
+          <p>© {new Date().getFullYear()} Smeet Patil. Built with ❤️</p>
         </div>
       </div>
     </footer>

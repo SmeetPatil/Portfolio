@@ -220,6 +220,56 @@
   }
 
   .contact__links {
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  .contact__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+    padding: 0 8px;
   }
 }
+
+@media (max-width: 480px) {
+  .contact__subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+  }
+
+  .contact__input {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+
+  .contact__submit-btn {
+    padding: 14px 20px;
+    font-size: 0.88rem;
+  }
+
+  .contact__email-card {
+    flex-wrap: wrap;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .contact__email-address {
+    font-size: 0.82rem;
+    word-break: break-all;
+  }
+
+  .contact__copy-btn {
+    width: 100%;
+    min-width: unset;
+    padding: 10px;
+  }
+
+  .contact__links {
+    flex-direction: column;
+  }
+
+  .contact__social {
+    padding: 16px 20px;
+    font-size: 0.88rem;
+  }
+}
+

@@ -17,7 +17,6 @@ function Navbar({ theme, toggleTheme }) {
 
   const navLinks = [
     { name: 'Home', href: '#home', color: 'var(--color-red)' },
-    { name: 'About', href: '#about', color: 'var(--color-blue)' },
     { name: 'Skills', href: '#skills', color: 'var(--color-yellow)' },
     { name: 'Projects', href: '#projects', color: 'var(--color-green)' },
     { name: 'Contact', href: '#contact', color: 'var(--color-purple)' },
