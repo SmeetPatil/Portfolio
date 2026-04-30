@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 
-const ParticlesBackground = () => {
+const ParticlesBackground = ({ theme }) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -12,6 +12,8 @@ const ParticlesBackground = () => {
       setInit(true);
     });
   }, []);
+
+  const isLight = theme === 'light';
 
   const options = useMemo(
     () => ({
@@ -43,13 +45,13 @@ const ParticlesBackground = () => {
       },
       particles: {
         color: {
-          value: ["#2a52be", "#ff4f00"],
+          value: ["#FF3B30", "#FF6B00", "#FFD60A", "#34C759", "#007AFF", "#BF5AF2", "#00D4FF"],
         },
         links: {
-          color: "#2a52be",
+          color: isLight ? "#0A0A0A" : "#FFFFFF",
           distance: 150,
           enable: true,
-          opacity: 0.6,
+          opacity: isLight ? 0.15 : 0.6,
           width: 2,
         },
         move: {
@@ -81,13 +83,14 @@ const ParticlesBackground = () => {
       },
       detectRetina: true,
     }),
-    [],
+    [isLight],
   );
 
   if (init) {
     return (
       <Particles
         id="tsparticles"
+        key={theme}
         options={options}
         style={{
           position: "fixed",

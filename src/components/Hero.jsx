@@ -19,18 +19,18 @@ function Hero() {
         currentIndex++;
         if (currentIndex === fullName.length) {
           isDeleting = true;
-          timeout = setTimeout(type, 2000); // Pause at end before deleting
+          timeout = setTimeout(type, 2000);
         } else {
-          timeout = setTimeout(type, 150); // Typing speed
+          timeout = setTimeout(type, 150);
         }
       } else {
         setText(fullName.substring(0, currentIndex - 1));
         currentIndex--;
         if (currentIndex === 0) {
           isDeleting = false;
-          timeout = setTimeout(type, 500); // Pause at beginning before typing
+          timeout = setTimeout(type, 500);
         } else {
-          timeout = setTimeout(type, 100); // Deleting speed
+          timeout = setTimeout(type, 100);
         }
       }
     };
@@ -66,11 +66,6 @@ function Hero() {
 
   return (
     <section className="hero" id="home">
-      {/* Background Orbs */}
-      <div className="hero__orb hero__orb--1"></div>
-      <div className="hero__orb hero__orb--2"></div>
-      <div className="hero__orb hero__orb--3"></div>
-
       <motion.div 
         className="hero__content"
         variants={containerVariants}
@@ -110,17 +105,15 @@ function Hero() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="hero__stats">
-          <div className="hero__stat">
+          <div className="hero__stat" style={{ '--stat-color': 'var(--color-red)' }}>
             <span className="hero__stat-number">24+</span>
             <span className="hero__stat-label">Repositories</span>
           </div>
-          <div className="hero__stat-divider"></div>
-          <div className="hero__stat">
+          <div className="hero__stat" style={{ '--stat-color': 'var(--color-blue)' }}>
             <span className="hero__stat-number">5+</span>
             <span className="hero__stat-label">Years Coding</span>
           </div>
-          <div className="hero__stat-divider"></div>
-          <div className="hero__stat">
+          <div className="hero__stat" style={{ '--stat-color': 'var(--color-green)' }}>
             <span className="hero__stat-number">10+</span>
             <span className="hero__stat-label">Projects Built</span>
           </div>

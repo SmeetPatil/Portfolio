@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion';
 import { Layers, Server, Terminal, Smartphone, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Navigation } from 'swiper/modules';
 
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaJava, FaAws, FaDocker, FaGithub } from 'react-icons/fa';
 import { SiNextdotjs, SiExpress, SiCplusplus, SiJenkins, SiFirebase, SiFlutter, SiDart, SiKotlin, SiSelenium } from 'react-icons/si';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import './Skills.css';
@@ -16,9 +15,9 @@ import './Skills.css';
 const skillCategories = [
   {
     title: 'Frontend Development',
-    icon: <Layers size={32} />,
-    color: '#8b5cf6',
-    description: 'Creating visually stunning, responsive, and performance-optimized user interfaces.',
+    icon: <Layers size={28} />,
+    color: '#FF6B00',
+    tagline: '// building interfaces',
     skills: [
       { name: 'HTML5', level: 95, Icon: FaHtml5 },
       { name: 'CSS3', level: 90, Icon: FaCss3Alt },
@@ -29,9 +28,9 @@ const skillCategories = [
   },
   {
     title: 'Backend & Context',
-    icon: <Server size={32} />,
-    color: '#06b6d4',
-    description: 'Building robust APIs, scalable architectures, and efficient server-side logic.',
+    icon: <Server size={28} />,
+    color: '#00D4FF',
+    tagline: '// server-side logic',
     skills: [
       { name: 'Node.js', level: 82, Icon: FaNodeJs },
       { name: 'Express.js', level: 80, Icon: SiExpress },
@@ -42,9 +41,9 @@ const skillCategories = [
   },
   {
     title: 'Tools & DevOps',
-    icon: <Terminal size={32} />,
-    color: '#ec4899',
-    description: 'Streamlining deployment workflows, managing cloud infrastructure, and continuous integration.',
+    icon: <Terminal size={28} />,
+    color: '#10b981',
+    tagline: '// automation & infra',
     skills: [
       { name: 'Git & GitHub', level: 90, Icon: FaGithub },
       { name: 'Docker', level: 72, Icon: FaDocker },
@@ -55,9 +54,9 @@ const skillCategories = [
   },
   {
     title: 'Mobile & AR',
-    icon: <Smartphone size={32} />,
+    icon: <Smartphone size={28} />,
     color: '#f59e0b',
-    description: 'Developing high-performance cross-platform applications and exploring immersive AR.',
+    tagline: '// cross-platform apps',
     skills: [
       { name: 'Flutter', level: 75, Icon: SiFlutter },
       { name: 'Dart', level: 73, Icon: SiDart },
@@ -96,9 +95,9 @@ function Skills() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="gradient-line"></div>
+          <div className="gradient-line" style={{ background: 'var(--color-yellow)' }}></div>
           <h2 className="section-title">
-            My <span className="gradient-text">Tech Stack</span>
+            My <span className="skills__title-accent">Tech Stack</span>
           </h2>
           <p className="section-subtitle">
             Technologies and tools I work with to bring ideas to life.
@@ -119,65 +118,77 @@ function Skills() {
             slidesPerView={'auto'}
             initialSlide={1}
             coverflowEffect={{
-              rotate: -5,
-              stretch: -30,
-              depth: 120,
+              rotate: 0,
+              stretch: -20,
+              depth: 100,
               modifier: 2,
               slideShadows: false,
             }}
-            pagination={{ clickable: true }}
             navigation={{
               prevEl: '.skills-swiper-button-prev',
               nextEl: '.skills-swiper-button-next',
             }}
-            modules={[EffectCoverflow, Pagination, Navigation]}
+            modules={[EffectCoverflow, Navigation]}
             className="skills__swiper"
           >
-            {skillCategories.map((cat, idx) => (
+            {skillCategories.map((cat) => (
               <SwiperSlide key={cat.title}>
                 <motion.div
                   className="skills__card"
                   variants={cardVariants}
                   style={{ '--cat-color': cat.color }}
                 >
-                  <div className="skills__card-glow" style={{ background: cat.color }}></div>
+                  {/* Colored accent bar on top */}
+                  <div className="skills__card-accent" style={{ background: cat.color }}></div>
+                  
+                  {/* Header */}
                   <div className="skills__card-header">
-                    <div className="skills__card-icon" style={{ color: cat.color }}>
+                    <div className="skills__card-icon-box" style={{ borderColor: cat.color, color: cat.color }}>
                       {cat.icon}
                     </div>
-                    <h3 className="skills__card-title">{cat.title}</h3>
+                    <div className="skills__card-header-text">
+                      <h3 className="skills__card-title">{cat.title}</h3>
+                      <span className="skills__card-tagline" style={{ color: cat.color }}>{cat.tagline}</span>
+                    </div>
                   </div>
-                  
-                  <p className="skills__card-desc">{cat.description}</p>
 
-                  <div className="skills__grid">
+                  {/* Skills List */}
+                  <div className="skills__list">
                     {cat.skills.map((skill) => (
-                      <div className="skill-circle-container" key={skill.name}>
-                        <div 
-                          className="skill-circle"
-                          style={{ '--cat-color': cat.color, '--level': skill.level }}
-                        >
-                          <div className="skill-circle-inner">
-                            <skill.Icon size={24} color={cat.color} />
+                      <div className="skills__item" key={skill.name}>
+                        <div className="skills__item-left">
+                          <div className="skills__item-icon" style={{ color: cat.color }}>
+                            <skill.Icon size={18} />
                           </div>
+                          <span className="skills__item-name">{skill.name}</span>
                         </div>
-                        <span className="skill-name">{skill.name}</span>
+                        <div className="skills__item-bar-container">
+                          <div 
+                            className="skills__item-bar" 
+                            style={{ width: `${skill.level}%`, background: cat.color }}
+                          ></div>
+                        </div>
+                        <span className="skills__item-pct">{skill.level}%</span>
                       </div>
                     ))}
                   </div>
                 </motion.div>
               </SwiperSlide>
             ))}
-
-            <div className="custom-swiper-navigation">
-              <button aria-label="Previous Slide" className="custom-swiper-button-prev skills-swiper-button-prev">
-                <ChevronLeft size={28} />
-              </button>
-              <button aria-label="Next Slide" className="custom-swiper-button-next skills-swiper-button-next">
-                <ChevronRight size={28} />
-              </button>
-            </div>
           </Swiper>
+
+          {/* Navigation OUTSIDE Swiper */}
+          <div className="skills__nav-row">
+            <button aria-label="Previous Slide" className="skills__nav-btn skills-swiper-button-prev">
+              <ChevronLeft size={24} />
+              <span>Prev</span>
+            </button>
+            <div className="skills__nav-divider"></div>
+            <button aria-label="Next Slide" className="skills__nav-btn skills-swiper-button-next">
+              <span>Next</span>
+              <ChevronRight size={24} />
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

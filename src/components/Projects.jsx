@@ -4,47 +4,46 @@ import { ExternalLink, Globe, Smartphone, Calculator, ShieldCheck, Gamepad2, Sho
 import { FaGithub, FaReact, FaNodeJs, FaJava, FaPython, FaLock, FaVrCardboard, FaJs, FaServer } from 'react-icons/fa';
 import { SiNextdotjs, SiExpress, SiMongodb, SiFirebase, SiMysql, SiPostgresql, SiFlutter, SiDart, SiOpencv } from 'react-icons/si';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';       
+import { EffectCoverflow, Navigation } from 'swiper/modules';       
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import './Projects.css';
 
 const getProjectIcon = (name) => {
   switch(name) {
-    case 'Hemisphere': return <Globe size={28} />;
-    case 'RentSphere': return <Smartphone size={28} />;
-    case 'TaxKar': return <Calculator size={28} />;
-    case 'PassVault': return <ShieldCheck size={28} />;
-    case 'AR Tic-Tac-Toe': return <Gamepad2 size={28} />;
-    case 'Tech Nexus': return <ShoppingCart size={28} />;
-    default: return <Globe size={28} />;
+    case 'Hemisphere': return <Globe size={24} />;
+    case 'RentSphere': return <Smartphone size={24} />;
+    case 'TaxKar': return <Calculator size={24} />;
+    case 'PassVault': return <ShieldCheck size={24} />;
+    case 'AR Tic-Tac-Toe': return <Gamepad2 size={24} />;
+    case 'Tech Nexus': return <ShoppingCart size={24} />;
+    default: return <Globe size={24} />;
   }
 };
 
 const getTechIcon = (techName) => {
   switch(techName) {
-    case 'React': return <FaReact size={24} />;
-    case 'Node.js': return <FaNodeJs size={24} />;
-    case 'Next.js': return <SiNextdotjs size={24} />;
-    case 'Express': return <SiExpress size={24} />;
-    case 'MongoDB': return <SiMongodb size={24} />;
-    case 'Firebase': return <SiFirebase size={24} />;
-    case 'Firestore': return <SiFirebase size={24} />;
-    case 'Flutter': return <SiFlutter size={24} />;
-    case 'Dart': return <SiDart size={24} />;
-    case 'Java': return <FaJava size={24} />;
-    case 'MySQL': return <SiMysql size={24} />;
-    case 'Python': return <FaPython size={24} />;
-    case 'OpenCV': return <SiOpencv size={24} />;
-    case 'PostgreSQL': return <SiPostgresql size={24} />;
-    case 'JavaScript': return <FaJs size={24} />;
-    case 'REST APIs': return <FaServer size={24} />;
-    case 'Cryptography': return <FaLock size={24} />;
-    case 'AR Framework': return <FaVrCardboard size={24} />;
+    case 'React': return <FaReact size={20} />;
+    case 'Node.js': return <FaNodeJs size={20} />;
+    case 'Next.js': return <SiNextdotjs size={20} />;
+    case 'Express': return <SiExpress size={20} />;
+    case 'MongoDB': return <SiMongodb size={20} />;
+    case 'Firebase': return <SiFirebase size={20} />;
+    case 'Firestore': return <SiFirebase size={20} />;
+    case 'Flutter': return <SiFlutter size={20} />;
+    case 'Dart': return <SiDart size={20} />;
+    case 'Java': return <FaJava size={20} />;
+    case 'MySQL': return <SiMysql size={20} />;
+    case 'Python': return <FaPython size={20} />;
+    case 'OpenCV': return <SiOpencv size={20} />;
+    case 'PostgreSQL': return <SiPostgresql size={20} />;
+    case 'JavaScript': return <FaJs size={20} />;
+    case 'REST APIs': return <FaServer size={20} />;
+    case 'Cryptography': return <FaLock size={20} />;
+    case 'AR Framework': return <FaVrCardboard size={20} />;
     default: return null;
   }
 }
@@ -56,7 +55,8 @@ const projects = [
     tech: ['Flutter', 'Dart', 'Firebase', 'Firestore'],
     github: 'https://github.com/SmeetPatil/hemisphere',
     featured: true,
-    gradient: 'linear-gradient(135deg, #7c3aed, #a855f7)',
+    color: '#FF6B00',
+    number: '01',
   },
   {
     name: 'RentSphere',
@@ -65,7 +65,8 @@ const projects = [
     github: 'https://github.com/SmeetPatil/RentSphere',
     live: 'https://rentsphere-hzo2.onrender.com/',
     featured: true,
-    gradient: 'linear-gradient(135deg, #06b6d4, #2b6cb0)',
+    color: '#00D4FF',
+    number: '02',
   },
   {
     name: 'TaxKar',
@@ -73,7 +74,8 @@ const projects = [
     tech: ['React', 'JavaScript', 'REST APIs'],
     github: 'https://github.com/SmeetPatil/taxkar',
     featured: true,
-    gradient: 'linear-gradient(135deg, #ec4899, #f43f5e)',
+    color: '#10b981',
+    number: '03',
   },
   {
     name: 'PassVault',
@@ -81,7 +83,8 @@ const projects = [
     tech: ['Java', 'Cryptography', 'MySQL'],
     github: 'https://github.com/SmeetPatil/PassVault',
     featured: false,
-    gradient: 'linear-gradient(135deg, #f59e0b, #fbbf24)',
+    color: '#f59e0b',
+    number: '04',
   },
   {
     name: 'AR Tic-Tac-Toe',
@@ -89,7 +92,8 @@ const projects = [
     tech: ['Python', 'OpenCV', 'AR Framework'],
     github: 'https://github.com/SmeetPatil/AR_TicTacToe',
     featured: false,
-    gradient: 'linear-gradient(135deg, #10b981, #059669)',
+    color: '#ec4899',
+    number: '05',
   },
   {
     name: 'Tech Nexus',
@@ -97,7 +101,8 @@ const projects = [
     tech: ['React', 'Node.js', 'PostgreSQL'],
     github: 'https://github.com/SmeetPatil/tech-nexus',
     featured: false,
-    gradient: 'linear-gradient(135deg, #6366f1, #4f46e5)',
+    color: '#8b5cf6',
+    number: '06',
   },
 ];
 
@@ -124,8 +129,9 @@ function Projects() {
     <section className="projects" id="projects">
       <div className="section-container">
         <div className="projects__header">
+          <div className="gradient-line" style={{ background: 'var(--color-green)' }}></div>
           <h2 className="section-title">
-            Featured <span className="gradient-text">Work</span>
+            Featured <span style={{ color: 'var(--color-green)', WebkitTextFillColor: 'var(--color-green)' }}>Work</span>
           </h2>
           <p className="section-subtitle">
             A showcase of my best projects spanning robust backend architectures, sleek frontends, and experimental AR mobile apps.
@@ -146,76 +152,73 @@ function Projects() {
             slidesPerView={'auto'}
             initialSlide={1}
             coverflowEffect={{
-              rotate: -5,
-              stretch: -30,
-              depth: 120,
+              rotate: 0,
+              stretch: -20,
+              depth: 100,
               modifier: 2,
               slideShadows: false,
             }}
-            pagination={{ clickable: true }}
             navigation={{
               prevEl: '.projects-swiper-button-prev',
               nextEl: '.projects-swiper-button-next',
             }}
-            modules={[EffectCoverflow, Pagination, Navigation]}
+            modules={[EffectCoverflow, Navigation]}
             className="projects__swiper"
           >
-            {projects.map((project, idx) => (
+            {projects.map((project) => (
               <SwiperSlide key={project.name}>
                 <motion.div variants={cardVariants} className="projects__tilt-wrapper">
                   <Tilt
-                    tiltMaxAngleX={8}
-                    tiltMaxAngleY={8}
+                    tiltMaxAngleX={5}
+                    tiltMaxAngleY={5}
                     perspective={1200}
-                    scale={1.02}
+                    scale={1.01}
                     transitionSpeed={2000}
                     gyroscope={true}
-                    className={`projects__card ${project.featured ? 'projects__card--featured' : ''}`}
+                    className="projects__card"
+                    style={{ '--project-color': project.color }}
                   >
-                    {/* Glow Effect Background */}
-                    <div
-                      className="projects__card-glow"
-                      style={{ background: project.gradient }}
-                    ></div>
+                    {/* Left accent bar */}
+                    <div className="projects__card-accent" style={{ background: project.color }}></div>
+                    
+                    {/* Project number watermark */}
+                    <div className="projects__card-number" style={{ color: project.color }}>{project.number}</div>
 
-                    {project.featured && (
-                      <div className="projects__badge"> Featured</div>        
-                    )}
-
+                    {/* Header Row */}
                     <div className="projects__card-top">
-                      <div className="projects__card-icon" style={{ background: project.gradient }}>
+                      <div className="projects__card-icon-box" style={{ borderColor: project.color, color: project.color }}>
                         {getProjectIcon(project.name)}
                       </div>
-
+                      <div className="projects__card-meta">
+                        <h3 className="projects__card-title">{project.name}</h3>
+                        {project.featured && (
+                          <span className="projects__badge" style={{ background: project.color }}>Featured</span>
+                        )}
+                      </div>
                       <div className="projects__links">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="projects__link-icon" aria-label="GitHub Repository">      
-                          <FaGithub size={20} />
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="projects__link-btn" aria-label="GitHub Repository">
+                          <FaGithub size={18} />
                         </a>
                         {project.live && (
-                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="projects__link-icon projects__link-icon--live" aria-label="Live Site">
-                            <ExternalLink size={20} />
+                          <a href={project.live} target="_blank" rel="noopener noreferrer" className="projects__link-btn projects__link-btn--live" aria-label="Live Site">
+                            <ExternalLink size={18} />
                           </a>
                         )}
                       </div>
                     </div>
 
-                    <div className="projects__card-content">
-                      <h3 className="projects__card-title">{project.name}</h3>  
-                      <p className="projects__card-desc">{project.description}</p>
-                    </div>
+                    {/* Description */}
+                    <p className="projects__card-desc">{project.description}</p>
 
-                    <div className="projects__tech-icons">
+                    {/* Tech Tags */}
+                    <div className="projects__tech-row">
                       {project.tech.map((t) => {
                         const icon = getTechIcon(t);
-                        return icon ? (
-                          <div className="projects__tech-icon-wrapper" key={t}>
-                            <div className="projects__tech-icon-inner">
-                              {icon}
-                            </div>
-                            <span className="projects__tech-tooltip">{t}</span>
+                        return (
+                          <div className="projects__tech-tag" key={t} style={{ borderColor: project.color }}>
+                            {icon && <span className="projects__tech-tag-icon" style={{ color: project.color }}>{icon}</span>}
+                            <span>{t}</span>
                           </div>
-                        ) : (
-                          <span className="projects__tag" key={t}>{t}</span>
                         );
                       })}
                     </div>
@@ -223,16 +226,20 @@ function Projects() {
                 </motion.div>
               </SwiperSlide>
             ))}
-
-            <div className="custom-swiper-navigation">
-              <button aria-label="Previous Slide" className="custom-swiper-button-prev projects-swiper-button-prev">
-                <ChevronLeft size={28} />
-              </button>
-              <button aria-label="Next Slide" className="custom-swiper-button-next projects-swiper-button-next">
-                <ChevronRight size={28} />
-              </button>
-            </div>
           </Swiper>
+
+          {/* Navigation OUTSIDE Swiper */}
+          <div className="projects__nav-row">
+            <button aria-label="Previous Slide" className="projects__nav-btn projects-swiper-button-prev">
+              <ChevronLeft size={24} />
+              <span>Prev</span>
+            </button>
+            <div className="projects__nav-divider"></div>
+            <button aria-label="Next Slide" className="projects__nav-btn projects-swiper-button-next">
+              <span>Next</span>
+              <ChevronRight size={24} />
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

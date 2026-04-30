@@ -16,11 +16,11 @@ function Navbar({ theme, toggleTheme }) {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', color: 'var(--color-red)' },
+    { name: 'About', href: '#about', color: 'var(--color-blue)' },
+    { name: 'Skills', href: '#skills', color: 'var(--color-yellow)' },
+    { name: 'Projects', href: '#projects', color: 'var(--color-green)' },
+    { name: 'Contact', href: '#contact', color: 'var(--color-purple)' },
   ];
 
   return (
@@ -35,13 +35,18 @@ function Navbar({ theme, toggleTheme }) {
           <div className="navbar__logo-icon">
             <img src={logo} alt="Smeet Patil Logo" style={{ width: '32px', height: '32px' }} />
           </div>
-          <span className="navbar__logo-text gradient-text">Smeet Patil</span>
+          <span className="navbar__logo-text">Smeet Patil</span>
         </a>
 
         {/* Desktop Menu */}
         <div className="navbar__menu">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="navbar__link">
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className="navbar__link"
+              style={{ '--link-color': link.color }}
+            >
               {link.name}
             </a>
           ))}
@@ -90,6 +95,7 @@ function Navbar({ theme, toggleTheme }) {
                 key={link.name} 
                 href={link.href} 
                 className="navbar__mobile-link"
+                style={{ '--link-color': link.color }}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}

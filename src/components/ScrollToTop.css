@@ -4,29 +4,24 @@
   right: 32px;
   width: 48px;
   height: 48px;
-  border-radius: 14px;
-  background: var(--gradient-primary);
-  color: #fff;
-  border: none;
+  background: var(--color-red);
+  color: #0A0A0A;
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: 3px 3px 0px var(--shadow-color);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
   transition: var(--transition);
-  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+}
+
+.scroll-top:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--shadow-color);
 }
 
 .scroll-top--visible {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
-}
-
-.scroll-top:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
 }
