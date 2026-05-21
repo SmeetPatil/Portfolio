@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Menu, X, Download } from 'lucide-react';
 import logo from '../assets/logo.png';
+import resume from '../assets/resume.pdf';
 import './Navbar.css';
 
 function Navbar({ theme, toggleTheme }) {
@@ -49,7 +50,7 @@ function Navbar({ theme, toggleTheme }) {
               {link.name}
             </a>
           ))}
-          <a href="/src/assets/resume.pdf" download="resume.pdf" className="navbar__link resume-nav-btn">
+          <a href={resume} download="resume.pdf" className="navbar__link resume-nav-btn">
             <Download size={18} />
             <span>Resume</span>
           </a>
@@ -101,7 +102,7 @@ function Navbar({ theme, toggleTheme }) {
               </a>
             ))}
             <a 
-              href="/src/assets/resume.pdf" 
+              href={resume} 
               download="resume.pdf" 
               className="navbar__mobile-link resume-nav-btn--mobile"
               onClick={() => setMobileMenuOpen(false)}
